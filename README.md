@@ -1,61 +1,46 @@
 # IT492_Pheonix_1
 
-<h3>Dataset : https://www.kaggle.com/datasets/sooyoungher/smoking-drinking-dataset/data </h3>
+<h3>Datasets : https://datarepo.eng.ucsd.edu/mcauley_group/gdrive/googlelocal/review-Illinois.json.gz, https://datarepo.eng.ucsd.edu/mcauley_group/gdrive/googlelocal/meta-Illinois.json.gz </h3>
 
-- This repository is about Smoking and Drinking dataset.The dataset is intended for use in Data visulization through EDA, data preprocessing, transformation, corelation, data split, hyperparameter and the model selection.The dataset file is in CSV(Comma Separated Value) format containing the data.
+- This repository is about 'Google review' dataset for the state of Illinois, USA.The dataset is intended for use in Data visulization through EDA, data preprocessing, word2vec, bag of words, TF-IDF vectorization,classification,finding cosine similarities.The dataset files are in CSV(Comma Separated Value) format containing the data.
 
 **Data Description :**
-1. **sex:** indicates the gender of the individual, male or female.
+This project makes use of 2 datasets, reviews and the metadata. 
+**Reviews** data contain the following columns:
+**user_id** - ID of the reviewer
+**name** - name of the reviwer
+**time** - time of the review (unix time)
+**rating** - rating of the business
+**text** - text of the review
+**pics** - pictures of the review
+**resp** - business response to the review including unix time and text of the response
+**gmap_id** - ID of the business
 
-2. **age:** age was categorised into 5-year intervals, i.e., 20–24 years, 25–29 years, and 85+ years. These intervals were then converted into numeric values by taking the lower bound of the interval.
+**Metadata** contains the following columns:
+**name** - name of the business
+**address** - address of the business
+**gmap_id** - ID of the business
+**description** - description of the business
+**latitude** - latitude of the business
+**longitude** - longitude of the business
+**category** - category of the business
+**avg_rating** - average rating of the business
+**num_of_reviews** - number of reviews
+**price** - price of the business
+**hours** - open hours
+**MISC** - MISC information
+**state** - the current status of the business (e.g., permanently closed)
+**relative_results** - relative businesses recommended by Google
+**url** - URL of the business
+ 
 
-3. **height:** indicates the height of the individual (rounded up to 5cm).
 
-4. **weight:** indicates the weight of the individual (rounded up to 5kg).
 
-5. **waistline:** indicates the circumference of the individual's waist.
 
-6. **sight_left:** represents the visual acuity of the individual's left eye. Visual acuity measures the ability of the eye to distinguish shapes and object details at a given distance. This ranges from 0.1 to 2.5, with values < 0.1 being shifted up to 0.1.
-
-7. **sight_right:** represents the visual acuity of the individual's right eye.
-
-8. **hear_left:** evaluates the person's left ear's hearing, assigning a 1 to any abnormal hearing and a 2 to normal hearing.
-
-9. **hear_right:** evaluates a person's right ear hearing using the same categorization scheme as hear_left.
-
-10. **SBP (Systolic blood pressure):** determines the person's maximum systolic blood pressure, expressed in millimeters of mercury (mmHg). The pressure in the arteries during a heartbeat is measured by the systolic blood pressure.
-
-11. **DBP (Diastolic blood pressure):** determines the person's diastolic blood pressure, expressed in millimeters of mercury (mmHg). The pressure in the arteries during the period between heartbeats is measured by diastolic blood pressure. The source mentioned above.
-
-12. **BLDS:** measures the individual's fasting blood glucose in mg/dL. This represents the concentration of glucose per 100 ml of blood prior to eating a meal.
-
-13. **tot_chole:** measures the total concentration of (ester and non-ester) cholestorol in the individual, in mg/dL.
-
-14. **HDL_chole:** calculates the total cholesterol concentration in a person's HDL (high density lipoprotein) region, expressed in milligrams per deciliter. Good cholesterol, or HDL cholesterol, is a type of cholesterol that returns to the liver after being absorbed from the blood and eliminated. Keep in mind that having higher HDL cholesterol can reduce your risk of heart disease.
-
-15. **LDL_chole:** quantifies the total cholesterol concentration in the LDL (low density lipoprotein) region in milligrams per deciliter. The majority of the cholesterol in the body is LDL cholesterol, sometimes referred to as bad cholesterol. Elevated levels of this may increase the risk of stroke and heart disease.
-
-16. **triglyceride:** calculates the blood's total triglyceride content, expressed in milligrams per deciliter. One kind of lipid, or fat, that moves through our bloodstream is triglycerides, which are typically derived from the food we eat.
-
-17. **hemoglobin:** measures the total concentration of hemoglobin in the individual's blood, in g/dL. Hemoglobin is a protein in our red blood cells that carries oxygen.
-
-18. **urine_protein:** determines the person's urine's protein content. Elevated protein levels in the urine, also known as proteinuria, may indicate a number of health issues, including renal and heart failure. supply. The label encodings for this variate ( 1(-), 2(+/-), 3(+1), 4(+2), 5(+3), and 6(+4) ) are not clear. However, we could surmise that they represent the number of standard deviations the value in the feature distribution resides at from the mean.
-
-19. **serum_creatin:** measures the concentration of creatinine in the individual's serum (which resides in their blood), in mg/dL. Creatinine is a waste product of creatine, which is produced to supply energy mainly to the muscles. Usually, this is removed entirely by your kidneys. Thus, if kidney function is abnormal, the concentration of creatinine will increase.
-
-20. **SGOT_AST:** measures the SGOT (glutamate-oxaloacetate transaminase) and AST (aspartate transaminase) values in IU/L, which are values in blood tests that quantify liver, heart and other organs' performance. In particular, when these are damaged, their value goes up. Normal values are around 0–40 IU/L.
-
-21. **SGOT_ALT:** Doctors use SGOT (glutamate-oxaloacetate transaminase) and ALT (alanine transaminase) values in blood tests to see how well the liver is working. In particular, when it is damaged, its value goes up. Normal values are around 0–40 IU/L.
-
-22. **gamma_GTP:** determines the gamma-GTP (y-glutamyl transpeptidase) value in IU/L, which is a bile dict value that indicates liver function. For men, the normal range is 11–63 IU/L, and for women, it is 8–35 IU/L.
-
-23. **SMK_STAT_TYPE_CD:** measures the individual's smoking state, where 1 corresponds to them never smoking, 2 corresponds to them having used to smoke but quit, and 3 corresponds to them still smoking.
-
-24. **DRK_YN:** is a flag that indicates whether the individual is a drinker or not.
 
 <h2>EDA :</h2>
-Exploratory Data Analysis (EDA) to gain insights into diamond characteristics.
-In EDA we provide data visualisation in different graph method like pair plot, cat plot, subplot, data distribution plot, pie chart, scatter plot. EDA summarize the main behaviour, features, and patterns in a dataset.
+Exploratory Data Analysis (EDA) to gain insights into reviews, ratings and categories .
+In EDA we provide data visualisation in different graph method like density plot, geographical scatter plot, column chart, data distribution plot, pie chart, heatmap. EDA summarize the main behaviour, features, and patterns in a dataset.
 Describing the relation between each other and making the observations.
 
 <h2> Contributors ✨ </h2>
